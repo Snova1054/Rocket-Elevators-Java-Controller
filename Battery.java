@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//Declares ColumnElevator, an object used to store a Column and an Elevator
 class ColumnElevator {
     Column column;
     Elevator elevator;
 }
 
+// Declares each Battery
 public class Battery {
     public char columnID = 'A';
     public int floorRequestButtonID = 1;
@@ -14,6 +16,7 @@ public class Battery {
     public List<Column> columnsList;
     public List<FloorRequestButtons> floorRequestButtonsList;
 
+    // Function used to create new Batteries with the desired properties
     public Battery(int _ID, int _amountOfColumns, int _amountOfFloors, int _amountOfBasements,
             int _amountOfElevatorPerColumn) {
         this.ID = _ID;
@@ -31,6 +34,7 @@ public class Battery {
         createColumns(_amountOfColumns, _amountOfFloors, _amountOfElevatorPerColumn);
     }
 
+    // Method used by the Battery to create a basement Column
     public void createBasementColumn(int _amountOfBasement, int _amountOfElevatorPerColumn) {
         List<Integer> servedFloors = new ArrayList<Integer>();
         int floor = -1;
@@ -46,6 +50,7 @@ public class Battery {
         columnID++;
     }
 
+    // Method used to create Columns
     public void createColumns(double _amountOfColumns, double _amountOfFloors, int _amountOfElevatorPerColumn) {
         double amountOfFloorsPerColumn = Math.ceil(_amountOfFloors / _amountOfColumns);
         int floor = 1;
@@ -67,6 +72,7 @@ public class Battery {
         }
     }
 
+    // Method used to create FloorRequestButtons
     public void createFloorRequestButtonss(double _amountOfFloors) {
         int buttonFloor = 1;
         for (int i = 0; i < _amountOfFloors; i++) {
@@ -77,6 +83,7 @@ public class Battery {
         }
     }
 
+    // Method used to create basement FloorRequestButtons
     public void createBasementFloorRequestButtonss(int _amountOfBasements) {
         int buttonFloor = -1;
         for (int i = 0; i < _amountOfBasements; i++) {
@@ -87,6 +94,8 @@ public class Battery {
         }
     }
 
+    // Method used to assign the best Elevator according to the best Column from the
+    // user's inputs
     public ColumnElevator assignElevator(int _requestedFloor, String _direction) {
         ColumnElevator columnElevator = new ColumnElevator();
         columnElevator.column = findBestColumn(_requestedFloor);
@@ -107,6 +116,5 @@ public class Battery {
             }
         }
         return null;
-
     }
 }

@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//Declares BestElevatorInformations
 class BestElevatorInformations {
     public Elevator bestElevator;
     public int bestScore;
     public int referenceGap;
 }
 
+// Declares each Column
 public class Column {
     public int callButtonID = 1;
 
@@ -19,6 +21,7 @@ public class Column {
     public List<Elevator> elevatorsList;
     public List<CallButton> callButtonsList;
 
+    // Function used to create new Columns with the desired properties
     public Column(char _ID, int _amountOfElevators, List<Integer> _servedFloors, Boolean _isBasement) {
         this.ID = Character.toString(_ID);
         this.status = "online";
@@ -31,6 +34,7 @@ public class Column {
         createCallButtons(servedFloors.size(), isBasement);
     }
 
+    // Method used by the Column to create Call Buttons
     public void createCallButtons(int _amountOfFloors, Boolean _isBasement) {
         if (_isBasement) {
             int buttonFloor = -1;
@@ -51,6 +55,7 @@ public class Column {
         }
     }
 
+    // Method used to create Elevators
     public void createElevators(int _amountOfFloors, int _amountOfElevators) {
         for (int i = 0; i < _amountOfElevators; i++) {
             Elevator elevator = new Elevator(elevatorID);
@@ -73,6 +78,7 @@ public class Column {
         return bestElevator;
     }
 
+    // Method used to find the best Elevator possible
     public Elevator findElevator(int _requestedFloor, String _requestedDirection) {
         BestElevatorInformations bestElevatorInformations = new BestElevatorInformations();
         bestElevatorInformations.bestElevator = elevatorsList.get(0);
@@ -127,6 +133,7 @@ public class Column {
         return bestElevatorInformations.bestElevator;
     }
 
+    // Method used to compared a new Elevator's information with the bestElevator's
     public BestElevatorInformations checkIfElevatorIsBetter(int _scoreToCheck, Elevator _newElevator,
             BestElevatorInformations bestElevatorInformations, int _floor) {
         if (_scoreToCheck < bestElevatorInformations.bestScore) {

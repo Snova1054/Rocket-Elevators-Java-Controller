@@ -6,6 +6,7 @@ public class CallButton {
     public int floor;
     public String direction;
 
+    // Function used to create new CallButtons with the desired properties
     public CallButton(int _id, int _floor, String _direction) {
         this.ID = _id;
         this.status = "off";
