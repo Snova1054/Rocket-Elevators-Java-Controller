@@ -13,4 +13,6 @@ Elevator selection is based on the elevator's status, current floor, direction a
 
 ## Dependencies
 
-As long as you have **VS Code's Coding Pack for Java and Extension Pack for Java** installed on your computer and then you've restarted your computer, nothing more needs to be installed
+As long as you have **VS Code's Coding Pack for Java and Extension Pack for Java** installed on your computer and then you've restarted your computer, nothing more needs to be installed.
+
+### No tests has been made for this program, thank you for trying it with your own scenarios!
