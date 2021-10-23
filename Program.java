@@ -1,8 +1,7 @@
 ﻿public class Program {
     public static void main(String[] args) {
-        System.out.println("Hello");
+        System.out.println("Hello and welcome to this Elevator Controller\n");
         Battery battery = new Battery(1, 4, 60, 6, 5);
-        System.out.print(battery.ID);
 
         Column column = battery.columnsList.get(2);
 
@@ -33,16 +32,6 @@
 
         ColumnElevator columnElevator = battery.assignElevator(36, "up");
         columnElevator.column = moveAllElevators(columnElevator.column);
-        System.out.println("Elevator ");
-        System.out.println(column.elevatorsList.get(0).currentFloor);
-        System.out.println("Elevator ");
-        System.out.println(column.elevatorsList.get(1).currentFloor);
-        System.out.println("Elevator ");
-        System.out.println(column.elevatorsList.get(2).currentFloor);
-        System.out.println("Elevator ");
-        System.out.println(column.elevatorsList.get(3).currentFloor);
-        System.out.println("Elevator ");
-        System.out.println(column.elevatorsList.get(4).currentFloor);
 
     }
 

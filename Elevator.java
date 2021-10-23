@@ -34,15 +34,21 @@ public class Elevator {
                 direction = "up";
                 sortFloorList();
                 while (currentFloor < destination) {
+                    String str1 = String.format("Elevator %s is on the floor #%d", ID, currentFloor);
+                    System.out.println(str1);            
                     currentFloor++;
                 }
             } else if (currentFloor > destination) {
                 direction = "down";
                 sortFloorList();
                 while (currentFloor > destination) {
+                    String str1 = String.format("Elevator %s is on the floor #%d", ID, currentFloor);
+                    System.out.println(str1);            
                     currentFloor--;
                 }
             }
+            String str1 = String.format("Elevator %s is on the floor #%d\n", ID, currentFloor);
+            System.out.println(str1);
             status = "stopped";
             operateDoors();
             floorRequestsList.remove(0);
@@ -61,8 +67,10 @@ public class Elevator {
     // Method used by the Elevator to operate its Doors
     public void operateDoors() {
         door.status = "opened";
+        System.out.println("Elevator's doors have opened");
         // Wait 5 secondes
         door.status = "closed";
+        System.out.println("Elevator's doors have closed\n");
     }
 
     // Method used to add new floor requests

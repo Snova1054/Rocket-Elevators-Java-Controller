@@ -61,14 +61,16 @@ public class Column {
             Elevator elevator = new Elevator(elevatorID);
             elevatorsList.add(elevator);
             elevatorID++;
-            System.out.print("Here's Elevator");
-            System.out.println(elevator.ID);
         }
     }
 
     // Simulate when a user press a button on a floor to go back to the first floor
     public Elevator requestElevator(int _userPosition, String _direction) {
+        String str1 = String.format("An elevator has been requested from the lobby to the floor #%d\n", _userPosition);
+        System.out.println(str1);
         Elevator bestElevator = findElevator(_userPosition, _direction);
+        String str2 = String.format("Elevator %s on the floor #%d has been selected as the best elevator\n", bestElevator.ID, bestElevator.currentFloor);
+        System.out.println(str2);
         bestElevator.addNewRequest(_userPosition);
         bestElevator.move();
 

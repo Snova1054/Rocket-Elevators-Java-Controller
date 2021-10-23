@@ -43,8 +43,6 @@ public class Battery {
             floor--;
         }
 
-        System.out.print("Here's Basement Column ");
-        System.out.println(columnID);
         Column basementColumn = new Column(columnID, _amountOfElevatorPerColumn, servedFloors, true);
         columnsList.add(basementColumn);
         columnID++;
@@ -64,8 +62,6 @@ public class Battery {
                     floor++;
                 }
             }
-            System.out.print("=========Here's Column");
-            System.out.println(columnID);
             Column column = new Column(columnID, _amountOfElevatorPerColumn, servedFloors, false);
             columnsList.add(column);
             columnID++;
@@ -97,9 +93,13 @@ public class Battery {
     // Method used to assign the best Elevator according to the best Column from the
     // user's inputs
     public ColumnElevator assignElevator(int _requestedFloor, String _direction) {
+        String str1 = String.format("An elevator has been requested from the lobby to the floor #%d\n", _requestedFloor);
+        System.out.println(str1);
         ColumnElevator columnElevator = new ColumnElevator();
         columnElevator.column = findBestColumn(_requestedFloor);
         columnElevator.elevator = columnElevator.column.findElevator(1, _direction);
+        String str2 = String.format("Elevator %s on the floor #%d has been selected as the best elevator\n", columnElevator.elevator.ID, columnElevator.elevator.currentFloor);
+        System.out.println(str2);
         columnElevator.elevator.addNewRequest(1);
         columnElevator.elevator.move();
 
